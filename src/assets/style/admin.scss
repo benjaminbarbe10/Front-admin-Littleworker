@@ -1,0 +1,126 @@
+@import '../../styles.scss';
+
+.alert-danger{
+  color: red;
+}
+
+.admin-new-container{
+  padding-top: 20px;
+  margin: 0 10%;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .new-content{
+    width: 100%;
+    h1 {
+      font-size: 66px;
+      font-weight: $LW_FONT_WEIGHT_LARGE;
+      line-height: 75px;
+      text-shadow: 0 2px 20px 0 rgba(0,0,0,0.5);
+    }
+    .new-btn-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 100px;
+      .primary, .secondary {
+        height: 112px;
+        width: 568px;
+        border: 4px solid $LW_BLUE;
+        background-color: $LW_WHITE;
+        line-height: 32px;
+        font-weight: $LW_FONT_WEIGHT_LARGE;
+        font-size: 26px;
+        transition: all ease 0.3s;
+        font-family: "Lato", "Arial" !important;
+
+      }
+      .secondary{
+        background-color: $LW_BLUE;
+        color: $LW_WHITE;
+      }
+      .primary {
+        cursor: pointer;
+      }
+      .primary:hover{
+        background-color: $LW_BLUE;
+        color: $LW_WHITE;
+
+      }
+    }
+  }
+  .admin-form{
+    width: 100%;
+    .form-group{
+      padding: 50px 0;
+      justify-content: space-between;
+      height: 100%;
+      .custom-input {
+        font-size: 20px!important;
+        height: 58px;
+        width: 461px;
+        border: 4px solid $LW_BLUE;
+      }
+      .custom-label {
+        font-size: 26px;
+        font-weight: $LW_FONT_WEIGHT_LARGE;
+        line-height: 32px;
+        text-transform: capitalize;
+      }
+    }
+    .form-tags{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      .form-tags-title {
+        font-size: 26px;
+        font-weight: $LW_FONT_WEIGHT_LARGE;
+        line-height: 32px;
+      }
+      .tags-label{
+        padding: 20px 15px;
+        letter-spacing: 0.56px;
+        font-size: 22.44px;
+        border: 3px solid black;
+        margin: 0 15px;
+        cursor: pointer;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+      }
+      .tags-label:hover{
+        border: 3px solid $LW_BLUE;
+        color: $LW_BLUE;
+      }
+      .selected-tags-label{
+        border: 3px solid $LW_BLUE!important;
+        color: $LW_BLUE!important;
+      }
+    }
+
+
+    .centered-form-group{
+      justify-content: center;
+    }
+  }
+
+  .btn-validate {
+    height: 112px;
+    cursor: pointer;
+    width: 568px;
+    border: 4px solid $LW_BLUE;
+    background-color: $LW_BLUE;
+    color: $LW_WHITE;
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: $LW_FONT_WEIGHT_LARGE;
+    font-family: "Lato", "Arial" !important;
+    text-transform: uppercase;
+  }
+
+}

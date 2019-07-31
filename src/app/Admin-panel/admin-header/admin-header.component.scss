@@ -1,0 +1,44 @@
+@import '../../../styles.scss';
+.admin-header{
+  display: flex;
+  width: 100%;
+  z-index: 1000;
+  align-items: center;
+  background-color: $LW_WHITE!important;
+  justify-content: space-between;
+}
+
+.right-btn {
+  button{
+    background: unset;
+    border: unset;
+
+  }
+  img{
+    height: 24px;
+    margin: 0 5px;
+    width: auto;
+
+  }
+  .admin-homepage-btn{
+    background-color: $LW_BLUE;
+    cursor: pointer;
+    color: $LW_WHITE;
+    padding: 25px 35px;
+    font-size: 18px;
+    width: 242px;
+    text-transform: uppercase;
+    font-weight: $LW_FONT_WEIGHT_MEDIUM;
+    letter-spacing: 0.45px;
+    line-height: 22px;
+    text-shadow: 0 2px 17px 0 rgba(0,0,0,0.09);
+  }
+
+}
+
+.logo{
+  width: 180px;
+  padding-left: 50px;
+  cursor: pointer;
+}
+

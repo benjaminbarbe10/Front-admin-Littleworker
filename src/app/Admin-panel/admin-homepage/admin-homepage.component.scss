@@ -1,0 +1,43 @@
+@import '../../../styles.scss';
+
+.admin-homepage-container{
+  padding-top: 20px;
+  margin: 0 10%;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .admin-content{
+    width: 100%;
+    h1 {
+      font-size: 66px;
+      font-weight: $LW_FONT_WEIGHT_LARGE;
+      line-height: 75px;
+      text-shadow: 0 2px 20px 0 rgba(0,0,0,0.5);
+    }
+    .admin-btn-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 100px;
+      button {
+        font-family: "Lato", "Arial" !important;
+        height: 112px;
+        width: 568px;
+        cursor: pointer;
+        border: 4px solid $LW_BLUE;
+        background-color: $LW_WHITE;
+        line-height: 32px;
+        font-weight: $LW_FONT_WEIGHT_LARGE;
+        font-size: 26px;
+        transition: all ease 0.3s;
+      }
+      button:hover{
+        background-color: $LW_BLUE;
+        color: $LW_WHITE;
+      }
+    }
+  }
+}

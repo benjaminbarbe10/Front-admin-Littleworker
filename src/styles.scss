@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+  font-family: 'Lato', 'Arial' !important;
+  margin: unset;
+}
+
+.show{
+  display: block!important;
+}
+.hide{
+  display: none!important;
+}
+
+.section-title{
+  width: 300px;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 900;
+  text-align: center;
+}
+.d-flex-align{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// Colors
+$LW_BLUE: #2d8b95;
+$LW_BLUE_HOVER: #357B95;
+$LW_GOLD: #f2a500;
+$LW_WHITE: #ffffff;
+$LW_GREY: #4A4A4A;
+$LW_LIGHTGREY: #F1F2F2;
+$LW_BLACK: #000000;
+$LW_LIGHTBLUE: #93c3c8;
+$LW_LIGHTRED: #ff664d;
+$LW_BACKGROUND_GREY: #fafafa;
+$LW_BACKGROUND_BLUE: #f7fafb;
+
+// Margin & Padding
+$LW_MARGIN: 8px;
+
+// BORDER
+$LW_CARD_BORDER_RADIUS: 3px;
+$LW_BUTTON_BORDER_RADIUS: 5px;
+
+
+// Font GLOBAL
+$LW_FONT_SIZE: 0.9em;
+$LW_FONT_WEIGHT: 400;
+
+
+// FONT CHAPTERS
+$LW_FONT_SIZE_SMALL: 14px;
+$LW_FONT_SIZE_MEDIUM: 16px;
+$LW_FONT_SIZE_LARGE: 18px;
+$LW_FONT_SIZE_BIG: 20px;
+
+$LW_FONT_WEIGHT_SMALL: 400;
+$LW_FONT_WEIGHT_MEDIUM: 700;
+$LW_FONT_WEIGHT_LARGE: 900;

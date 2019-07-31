@@ -1,0 +1,11 @@
+<app-admin-header></app-admin-header>
+
+<div class="admin-homepage-container">
+    <div *ngFor="let item of adminContent" class="admin-content">
+        <h1>{{item.name}}</h1>
+        <div class="admin-btn-container">
+            <button routerLink="#" class="primary-admin">{{item.firstBtn}}</button>
+            <button routerLink="{{item.secondBtnUrl}}" *ngIf="item.secondBtn" class="secondary-admin">{{item.secondBtn}}</button>
+        </div>
+    </div>
+</div>

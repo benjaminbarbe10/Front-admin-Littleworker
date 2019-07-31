@@ -1,0 +1,46 @@
+@import '../../../assets/style/admin';
+
+.admin-new-container{
+    .form-tags{
+      #deco,
+      #news,
+      #works,
+      #media,
+      #instagram {
+        display: none;
+      }
+  }
+  .form-logo{
+    align-items: flex-start;
+    justify-content: flex-start!important;
+    .custom-label{
+      margin-top: 30px;
+    }
+      .logo {
+        height: 500px;
+        width: 500px;
+        border: 1px solid #979797;
+        margin: 30px;
+        overflow: hidden;
+        input{
+          height: 500px;
+          width: 500px;
+          opacity: 0;
+          position: absolute;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  .form-url{
+    justify-content: center;
+
+    .title-input{
+      margin-left: 100px;
+      width: 70%!important;
+    }
+  }
+
+}

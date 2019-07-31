@@ -1,0 +1,182 @@
+<app-admin-header></app-admin-header>
+<div class="admin-new-container">
+    <div class="new-content">
+        <h1>Nos Réalisations</h1>
+        <div class="new-btn-container">
+            <button routerLink="#" class="primary">Modifier la landing</button>
+            <button class="secondary">Ajouter une Réalisation</button>
+        </div>
+    </div>
+    <form class="admin-form" (ngSubmit)="postProject()" id="project-form">
+        <div class="form-tags form-group d-flex-align">
+            <label class="form-tags-title">Tags : *</label>
+            <div class="form-check" *ngFor="let tag of tags">
+                <input (change)="changeCheckboxState(tag)" type="checkbox" name="tags" id="{{tag.id}}" value="{{tag.title}}" /><label id="{{tag.id}}-label" class="tags-label" for="{{tag.id}}">#{{tag.title}}</label>
+            </div>
+         </div>
+        <div class="form-group d-flex-align">
+            <label class="custom-label">Nom : *</label>
+            <div class="input">
+                <input #name="ngModel" required type="text" name="name" class="custom-input form-control" [(ngModel)]="project.name" />
+                <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                     class="alert-danger">
+                    <div *ngIf="name.errors.required">
+                        Le nom est requis.
+                    </div>
+                </div>
+            </div>
+            <label class="custom-label">Htag : </label>
+            <input type="text" placeholder="clapdefindechantier" name="htag" class="custom-input form-control" [(ngModel)]="project.htag" />
+        </div>
+        <div class="form-group form-title d-flex-align">
+            <label class="custom-label">Titre : *</label>
+            <div class="title-input">
+                <input #title="ngModel" required type="text" name="title" class="custom-input form-control" [(ngModel)]="project.title" />
+                <div *ngIf="title.invalid && (title.dirty || title.touched)"
+                     class="alert-danger">
+                    <div *ngIf="title.errors.required">
+                        Le titre est requis.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-description d-flex-align">
+            <label class="custom-label ">Description : *</label>
+            <div class="description-input">
+                <textarea #description="ngModel" required [(ngModel)]="project.description" class="custom-input description-input" rows="4" cols="50" name="description" form="project-form"></textarea>
+                <div *ngIf="description.invalid && (description.dirty || description.touched)"
+                     class="alert-danger">
+                    <div *ngIf="description.errors.required">
+                        La description est requise.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group d-flex-align">
+            <label class="custom-label">Ville : *</label>
+            <div>
+                <input #cities="ngModel" required type="text" name="cities" class="custom-input form-control" [(ngModel)]="project.cities" />
+                <div *ngIf="cities.invalid && (cities.dirty || cities.touched)"
+                     class="alert-danger">
+                    <div *ngIf="cities.errors.required">
+                        La ville est requise.
+                    </div>
+                </div>
+            </div>
+
+            <label class="custom-label">Surface : *</label>
+            <div>
+                <input #surface="ngModel" required  type="number" name="surface" class="custom-input form-control" [(ngModel)]="project.surface" />
+                <div *ngIf="surface.invalid && (surface.dirty || surface.touched)"
+                     class="alert-danger">
+                    <div *ngIf="surface.errors.required">
+                        La surface est requise, doit etre un nombre.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-radio d-flex-align">
+            <label class="custom-label ">Budget : *</label>
+            <div class="budgect-col d-flex-align">
+                <div class="form-check" *ngFor="let b of budgects">
+                    <input [(ngModel)]="project.budgect" type="radio" name="budgect" id="{{b.id}}" value="{{b.title}}" /><label id="{{b.id}}-label" class="tags-label" for="{{b.id}}">{{b.title}}</label>
+                </div>
+            </div>
+            <label class="custom-label ">Durée : *</label>
+            <div class="duration-col d-flex-align">
+                <div class="form-check" *ngFor="let d of durations">
+                    <input [(ngModel)]="project.duration" type="radio" name="duration" id="{{d.id}}" value="{{d.title}}" /><label id="{{d.id}}-label" class="tags-label" for="{{d.id}}">{{d.title}} mois</label>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-paragraph d-flex-align">
+            <div class="form-group form-paragraph-title d-flex-align">
+                <label class="custom-label">Titre paragraphe : </label>
+                <input  type="text" name="name" class="custom-input title-input form-control" [(ngModel)]="paragraph.title" />
+            </div>
+            <div class="form-group form-paragraph-description d-flex-align">
+                <label class="custom-label ">Description paragraphe : </label>
+                <textarea [(ngModel)]="paragraph.description" class="custom-input description-input" rows="4" cols="50" name="comment" form="project-form"></textarea>
+
+            </div>
+        </div>
+        <div class="form-group form-photo d-flex-align">
+            <label class="custom-label ">Photos : </label>
+            <div class="photos-container">
+                <div class="d-flex-align">
+                    <div class="primary-left">
+                        <input  type="text" placeholder="Alt de limage" name="primary_left_alt" class="custom-input alt-input form-control" [(ngModel)]="images.primary_left.alt" />
+                        <input class="file-input" #primaryLeft (change)="onFileChanged($event,images.primary_left);preview(primaryLeft.files, selectedImages.primary_left)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                        <img [src]="selectedImages.primary_left.data">
+                    </div>
+                    <div class="primary-right">
+                        <input  type="text" placeholder="Alt de limage" name="primary_right_alt" class="custom-input alt-input form-control" [(ngModel)]="images.primary_right.alt" />
+                        <input class="file-input" #primaryRight (change)="onFileChanged($event,images.primary_right);preview(primaryRight.files, selectedImages.primary_right)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                        <img [src]="selectedImages.primary_right.data">
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex-align">
+                    <div class="main">
+                        <input type="text" placeholder="Alt de limage" name="main_alt" class="custom-input alt-input form-control" [(ngModel)]="images.main.alt" />
+                        <input class="file-input" #main (change)="onFileChanged($event,images.main);preview(main.files, selectedImages.main)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                        <img [src]="selectedImages.main.data">
+
+                    </div>
+
+                </div>
+                <div class="d-flex-align">
+                    <div class="secondary-left">
+                        <input type="text" placeholder="Alt de limage" name="secondary_left_alt" class="custom-input alt-input form-control" [(ngModel)]="images.secondary_left.alt" />
+                        <input class="file-input" #secondaryLeft (change)="onFileChanged($event,images.secondary_left);preview(secondaryLeft.files, selectedImages.secondary_left)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                        <img [src]="selectedImages.secondary_left.data">
+                    </div>
+                    <div class="secondary_right">
+                        <input  type="text" placeholder="Alt de limage" name="secondary_right_alt" class="custom-input alt-input form-control" [(ngModel)]="images.secondary_right.alt" />
+                        <input class="file-input" #secondaryRight (change)="onFileChanged($event,images.secondary_right);preview(secondaryRight.files, selectedImages.secondary_right)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                        <img [src]="selectedImages.secondary_right.data">
+                    </div>
+                </div>
+                <label class="custom-label">photos supplémentaires : </label>
+                <div class="d-flex-align">
+                    <div class="others">
+                        <div class="others-input">
+                            <input class="file-input" (change)="onFileChangedOthersImages(uploaderOthers)" multiple type="file" name="photo" ng2FileSelect [uploader]="uploaderOthers" />
+                            <img src="https://via.placeholder.com/350">
+                        </div>
+                        <div class="others-list">
+                            <ul *ngFor="let item of uploaderOthers.queue">
+                                <li>{{ item?.file?.name }}</li>
+                                <button type="button" class="btn btn-danger btn-xs"
+                                        (click)="onFileChangedOthersImages(uploaderOthers); item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> Supprimer
+                                </button>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group form-projects d-flex-align">
+            <label class="custom-label ">Projets reliés </label>
+
+            <ng-multiselect-dropdown
+                    [placeholder]="'Selectionner un ou plusieurs projets'"
+                    [data]="projects"
+                    name="project"
+                    [(ngModel)]="project.projects"
+                    [settings]="dropdownSettings"
+            >
+            </ng-multiselect-dropdown>
+        </div>
+        <div class="centered-form-group form-group d-flex-align">
+            <button class="btn-validate" type="submit">Valider</button>
+        </div>
+    </form>
+</div>

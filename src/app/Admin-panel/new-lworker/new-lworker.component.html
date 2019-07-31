@@ -1,0 +1,64 @@
+<app-admin-header></app-admin-header>
+<div class="admin-new-container">
+    <div class="new-content">
+        <h1>Notre Equipe</h1>
+        <div class="new-btn-container">
+            <button routerLink="#" class="primary">Modifier la landing</button>
+            <button class="secondary">Ajouter une personne</button>
+        </div>
+    </div>
+    <form class="admin-form" (ngSubmit)="postLworker()">
+        <div class="form-tags form-group d-flex-align">
+            <label class="form-tags-title">Tags : *</label>
+            <div class="form-check" *ngFor="let tag of tags">
+                <input (change)="changeCheckboxState(tag)" type="checkbox" name="tags" id="{{tag.id}}" value="{{tag.title}}" /><label id="{{tag.id}}-label" class="tags-label" for="{{tag.id}}">#{{tag.title}}</label>
+            </div>
+        </div>
+        <div class="form-group d-flex-align">
+            <label class="custom-label">Nom : *</label>
+            <div>
+                <input required id="surname" #surname="ngModel" type="text" name="surname" class="custom-input form-control" [(ngModel)]="lworker.surname" />
+                <div *ngIf="surname.invalid && (surname.dirty || surname.touched)"
+                     class="alert-danger">
+                    <div *ngIf="surname.errors.required">
+                        Le nom est requis.
+                    </div>
+                </div>
+            </div>
+
+            <label class="custom-label">Prenom : *</label>
+            <div>
+                <input required id="name" #name="ngModel" type="text" name="name" class="custom-input form-control" [(ngModel)]="lworker.name" />
+                <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                     class="alert-danger">
+                    <div *ngIf="name.errors.required">
+                        Le prenom est requis.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-position d-flex-align">
+            <label class="custom-label">Poste : *</label>
+            <div class="position-input">
+                <input required id="position" #position="ngModel" type="text" name="position" class=" custom-input form-control" [(ngModel)]="lworker.position" />
+                <div *ngIf="position.invalid && (position.dirty || position.touched)"
+                     class="alert-danger">
+                    <div *ngIf="position.errors.required">
+                        Le poste est requis.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group form-image d-flex-align">
+            <label class="custom-label ">Image : *</label>
+            <div class="image">
+                <input #main (change)="onFileChanged($event,image);preview(main.files, selectedImage)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                <img [src]="selectedImage.data">
+            </div>
+        </div>
+        <div class="centered-form-group form-group d-flex-align">
+            <button class="btn-validate" type="submit">Valider</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+@import '../../../styles.scss';
+
+.login-container{
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  form{
+    display: flex;
+    border: 5px solid $LW_BLUE;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    .form-group{
+      justify-content: space-evenly;
+      flex-direction: column;
+      height: 112px;
+      width: 568px;
+      cursor: pointer;
+      background-color: $LW_WHITE;
+      line-height: 32px;
+      font-weight: $LW_FONT_WEIGHT_LARGE;
+      font-size: 26px;
+    }
+    input{
+      width: 100px;
+      height: 20px;
+      background-color: unset!important;
+      border: 2px $LW_BLUE solid;
+    }
+    button{
+      background-color: $LW_BLUE;
+      cursor: pointer;
+      color: $LW_WHITE;
+      padding: 25px 35px;
+      font-size: 18px;
+      width: 242px;
+      text-transform: uppercase;
+      font-weight: $LW_FONT_WEIGHT_MEDIUM;
+      letter-spacing: 0.45px;
+      line-height: 22px;
+      text-shadow: 0 2px 17px 0 rgba(0,0,0,0.09);
+    }
+  }
+}

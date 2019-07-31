@@ -1,0 +1,18 @@
+<app-admin-header></app-admin-header>
+<div class="login-container">
+    <h4 *ngIf="error">{{error}}</h4>
+    <form (ngSubmit)="submit()">
+        <div class="form-group d-flex-align">
+            <label>Identifiant</label>
+            <input type="text" name="username" class="form-control" [(ngModel)]="username" />
+        </div>
+        <div class="form-group d-flex-align">
+            <label>Mot de passe</label>
+            <input type="password" name="password" class="form-control" [(ngModel)]="password" />
+        </div>
+        <div class="form-group d-flex-align">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,182 @@
+@import '../../../assets/style/admin';
+
+.admin-new-container{
+
+  .admin-form{
+    .form-group{
+      .description-input {
+        height: 375px;
+        width: 1000px;
+      }
+    }
+    .form-tags{
+      #archi,
+      #worksite,
+      #decorators,
+      #paris,
+      #bordeaux {
+        display: none;
+      }
+    }
+    .form-description{
+      align-items: flex-start;
+    }
+    .form-title{
+      justify-content: center;
+
+      .title-input{
+        margin-left: 100px;
+        width: 50%;
+      }
+    }
+    .form-radio{
+      align-items: flex-start;
+      justify-content: flex-start;
+      .custom-label{
+        width: 150px;
+      }
+    }
+    .duration-col, .budgect-col{
+      flex-direction: column;
+      align-items: flex-start;
+      width: 40%;
+      input[type='radio'] {
+        -webkit-appearance:none;
+        width:25px;
+        height:25px;
+        border:3px solid $LW_BLUE;
+        border-radius:50%;
+        outline:none;
+      }
+      input[type='radio']:hover {
+        cursor: pointer
+      }
+      input[type='radio']:before {
+        content:'';
+        display:block;
+        width:60%;
+        height:60%;
+        margin: 20% auto;
+        border-radius:50%;
+      }
+      input[type='radio']:checked:before {
+        background:$LW_BLUE;
+      }
+      .form-check{
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      input{
+        margin-right: 60px;
+      }
+      label {
+        font-size: 26px;
+        line-height: 32px;
+      }
+    }
+    .duration-col{
+      flex-wrap: wrap;
+      height: 200px;
+      justify-content: flex-start;
+      .form-check{
+        padding-right: 5px;
+      }
+    }
+  }
+  .form-paragraph{
+    flex-direction: column;
+    align-items: flex-start;
+    .form-group{
+      width: 100%;
+    }
+    .custom-label{
+      width: 300px;
+    }
+    .form-paragraph-description{
+      align-items: flex-start!important;
+      justify-content: flex-start;
+      .description-input {
+        height: 375px;
+        width: 800px;
+        margin-left: 100px;
+
+      }
+    }
+    .form-paragraph-title{
+      justify-content: flex-start;
+      .title-input{
+        margin-left: 100px;
+        width: 50%;
+      }
+    }
+  }
+  .form-photo{
+    align-items: flex-start;
+    .custom-label{
+      margin-top: 30px;
+    }
+    .photos-container{
+      .alt-input{
+        width: 99.5%;
+        height: 30px;
+        border-width: 2px;
+      }
+      .primary-left, .primary-right, .secondary-left, .secondary_right {
+        height: 700px;
+        width: 500px;
+        border: 1px solid #979797;
+        margin: 30px;
+        overflow: hidden;
+        .file-input{
+          height: 700px;
+          width: 500px;
+          opacity: 0;
+          position: absolute;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+
+
+      .main {
+        height: 700px;
+        width: 1062px;
+        border: 1px solid #979797;
+        margin: 30px;
+        overflow: hidden;
+        .file-input{
+          height: 700px;
+          width: 1062px;
+          opacity: 0;
+          position: absolute;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  .form-projects{
+    justify-content: flex-start!important;
+    .custom-label{
+      margin-right: 30px;
+    }
+    ::ng-deep ng-multiselect-dropdown .multiselect-dropdown{
+      .dropdown-btn{
+        border: 4px solid $LW_BLUE!important;
+      }
+      .selected-item{
+        border: 1px solid $LW_BLUE!important;
+        background-color: $LW_BLUE;
+      }
+      input[type=checkbox][_ngcontent-ypb-c3]:checked + div[_ngcontent-ypb-c3]:before{
+        background: $LW_BLUE;
+      }
+    }
+  }
+}

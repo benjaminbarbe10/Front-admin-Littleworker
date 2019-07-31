@@ -1,0 +1,44 @@
+<app-admin-header></app-admin-header>
+<div class="admin-new-container">
+    <div class="new-content">
+        <h1>Presse</h1>
+        <div class="new-btn-container">
+            <button routerLink="#" class="primary">Modifier la landing</button>
+            <button class="secondary">Ajouter une publication</button>
+        </div>
+    </div>
+    <form class="admin-form" (ngSubmit)="postPress()">
+        <div class="form-tags form-group d-flex-align">
+            <label class="form-tags-title">Tags : *</label>
+            <div class="form-check" *ngFor="let tag of tags">
+                <input required (change)="changeCheckboxState(tag)" type="checkbox" name="tags" id="{{tag.id}}" value="{{tag.title}}" /><label id="{{tag.id}}-label" class="tags-label" for="{{tag.id}}">#{{tag.title}}</label>
+            </div>
+        </div>
+
+        <div class="form-group form-logo d-flex-align">
+            <label class="custom-label ">Logo : *</label>
+                <div class="logo">
+                    <input required #main (change)="onFileChanged($event,logo);preview(main.files, selectedLogo)" type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                    <img [src]="selectedLogo.data">
+                </div>
+        </div>
+        <div class="form-group form-url d-flex-align">
+            <label class="custom-label">Url Publication : *</label>
+            <div class="title-input">
+                <input required id="url" #url="ngModel" type="text" name="url" class="custom-input form-control" [(ngModel)]="press.url" />
+                <div *ngIf="url.invalid && (url.dirty || url.touched)"
+                     class="alert-danger">
+                    <div *ngIf="url.errors.required">
+                        L'url est requise.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="centered-form-group form-group d-flex-align">
+            <button class="btn-validate" type="submit">Valider</button>
+        </div>
+    </form>
+</div>

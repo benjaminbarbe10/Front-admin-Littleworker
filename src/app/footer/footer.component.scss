@@ -1,0 +1,18 @@
+@import '../../styles.scss';
+
+.footer-container{
+  background-color: $LW_BLUE;
+  color: $LW_WHITE;
+  .footer-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer-row{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+    }
+  }
+}
